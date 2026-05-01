@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+        }
+
+        form {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        /* Hover effect */
+        input:hover, textarea:hover {
+            background-color: #e0f7fa;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background: #333;
+            color: white;
+            border: none;
+        }
+    </style>
+
+    <script>
+        // Validation function
+        function validateName() {
+            let name = document.getElementById("name").value;
+            if (name.length < 3) {
+                document.getElementById("msg").innerHTML = "Name too short!";
+            } else {
+                document.getElementById("msg").innerHTML = "";
+            }
+        }
+
+        // Email validation
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            if (!email.includes("@")) {
+                document.getElementById("msg").innerHTML = "Invalid email!";
+            } else {
+                document.getElementById("msg").innerHTML = "";
+            }
+        }
+
+        // Double-click submit
+        function submitForm() {
+            alert("Feedback submitted successfully!");
+        }
+    </script>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Feedback Form</h2>
+
+<form>
+    <input type="text" id="name" placeholder="Enter Name" onkeyup="validateName()">
+
+    <input type="email" id="email" placeholder="Enter Email" onkeyup="validateEmail()">
+
+    <textarea placeholder="Enter Feedback"></textarea>
+
+    <p id="msg" style="color:red;"></p>
+
+    <button type="button" ondblclick="submitForm()">Submit (Double Click)</button>
+</form>
+
+</body>
+</html>
